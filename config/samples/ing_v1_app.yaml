@@ -1,0 +1,12 @@
+apiVersion: ing.igtest.com/v1
+kind: App
+metadata:
+  labels:
+    app.kubernetes.io/name: app
+    app.kubernetes.io/instance: app-sample
+    app.kubernetes.io/part-of: ingress-manager
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: ingress-manager
+  name: app-sample
+spec:
+  # TODO(user): Add fields here

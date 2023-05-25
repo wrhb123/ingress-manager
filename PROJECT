@@ -4,7 +4,17 @@
 # More info: https://book.kubebuilder.io/reference/project-config.html
 domain: igtest.com
 layout:
-- go.kubebuilder.io/v4
+- go.kubebuilder.io/v3
 projectName: ingress-manager
 repo: github.com/wrhb123/ingress-manager
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: igtest.com
+  group: ing
+  kind: App
+  path: github.com/wrhb123/ingress-manager/api/v1
+  version: v1
 version: "3"
