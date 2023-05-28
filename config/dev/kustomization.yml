@@ -1,0 +1,37 @@
+bases:
+   - ../default
+
+patches:
+   - patch: |
+        - op: "remove"
+          path: "/spec/dnsNames"
+     target:
+        kind: Certificate
+   - patch: |
+        - op: "add"
+          path: "/spec/ipAddresses"
+          value: ["10.0.0.1"]
+     target:
+        kind: Certificate
+   - patch: |
+        - op: "add"
+          path: "/webhooks/0/clientConfig/url"
+          value: "https://10.0.0.1:9443/mutate-ing-igtest-com-v1-app"
+     target:
+        kind: MutatingWebhookConfiguration
+   - patch: |
+        - op: "add"
+          path: "/webhooks/0/clientConfig/url"
+          value: "https://10.0.0.1:9443//validate-ing-igtest-com-v1-app"
+     target:
+        kind: ValidatingWebhookConfiguration
+   - patch: |
+        - op: "remove"
+          path: "/webhooks/0/clientConfig/service"
+     target:
+        kind: MutatingWebhookConfiguration
+   - patch: |
+        - op: "remove"
+          path: "/webhooks/0/clientConfig/service"
+     target:
+        kind: ValidatingWebhookConfiguration

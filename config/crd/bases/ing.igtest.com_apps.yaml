@@ -35,10 +35,20 @@ spec:
           spec:
             description: AppSpec defines the desired state of App
             properties:
-              foo:
-                description: Foo is an example field of App. Edit app_types.go to
-                  remove/update
+              enable_ingress:
+                default: false
+                type: boolean
+              enable_service:
+                type: boolean
+              image:
                 type: string
+              replicas:
+                format: int32
+                type: integer
+            required:
+            - enable_service
+            - image
+            - replicas
             type: object
           status:
             description: AppStatus defines the observed state of App
